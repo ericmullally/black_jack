@@ -12,17 +12,17 @@ class Player():
     def get_points(self):
         return reduce(lambda card, next_card: card + next_card, self.cards, 0)
 
-    def hit_stay_bet(self, deal):
+    def hit_stay_bet(self):
         print("1: hit")
         print("2: stay")
         print("3: bet")
         choice = input(": ")
         if choice == "1":
-            deal(self)
+            return "hit"
         elif choice == "2":
             return "stayed"
         elif choice == "3":
-            bet_amt = int(input("enter amount: "))
+            bet_amt = float(input("enter amount: "))
             while bet_amt > self.balance:
                 bet_amt = input("enter amount")
             self.balance = self.balance - bet_amt
